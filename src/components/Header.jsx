@@ -14,9 +14,9 @@ export default function Header() {
       <header className="flex justify-between items-center px-3 max-w-6xl mx-auto">
         <div>
           <img
-            src="https://img.huffingtonpost.com/asset/59ae555f1b000028005b4811.jpeg?cache=jZmR66qztu&ops=scalefit_720_noupscale"
+            src="https://t4.ftcdn.net/jpg/01/92/96/93/360_F_192969327_l5WdNvwU5myPhZ08wsbEWNLXpyVXSIi4.jpg"
             alt="logo"
-            className="h-5 cursor-pointer hover:"
+            className="h-9 cursor-pointer hover:"
             onClick={() => navigate("/")}
           />
         </div>
