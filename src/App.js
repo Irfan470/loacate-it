@@ -2,7 +2,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "./App.css";
 import Header from "./components/Header";
-import BikeServiceSpots from "./Pages/BikeServiceSpots";
 import ForgotPassword from "./Pages/ForgotPassword";
 import Home from "./Pages/Home";
 import OutdoorGyms from "./Pages/OutdoorGYms";
@@ -12,6 +11,7 @@ import SignIn from "./Pages/SignIn";
 import SIgnUp from "./Pages/SIgnUp";
 import "react-toastify/dist/ReactToastify.css";
 import PrivateRoute from "./components/PrivateRoute";
+import CreateListing from "./Pages/CreateListing";
 
 function App() {
   return (
@@ -27,7 +27,9 @@ function App() {
           <Route path="/sign-up" element={<SIgnUp />} />
           <Route path="/sign-in" element={<SignIn />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
-          <Route path="/bike-service-spots" element={<BikeServiceSpots />} />
+          <Route path="create-listing" element={<PrivateRoute />}>
+            <Route path="/create-listing" element={<CreateListing />} />
+          </Route>
           <Route path="/picnic-spots" element={<PicnicSpots />} />
         </Routes>
       </Router>

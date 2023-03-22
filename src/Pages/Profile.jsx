@@ -4,6 +4,8 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router";
 import { toast } from "react-toastify";
 import { db } from "../firebase";
+import { BsFillPinFill } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 export default function Profile() {
   const auth = getAuth();
@@ -46,7 +48,7 @@ export default function Profile() {
   return (
     <>
       <section className="max-w-6xl mx-auto flex justify-center items-center flex-col">
-        <h1 className="text-3xl text-center mt-6 font-bold">My Profile</h1>
+        <h1 className="text-3xl text-center mt-6 mb-6 font-bold">My Profile</h1>
         <div>
           <form>
             <input
@@ -85,6 +87,18 @@ export default function Profile() {
                 Sign out
               </p>
             </div>
+            <button
+              type="submit"
+              className="w-full bg-[#114219] text-white uppercase px-7 py-3 text-sm font-medium rounded shadow-md hover:bg-green-700 transition duration-150 ease-in-out hover:shadow-lg active:bg-green-700"
+            >
+              <Link
+                to="/create-listing"
+                className="flex justify-center items-center"
+              >
+                <BsFillPinFill className="mr-2 text-3xl bg-red-500 rounded-full p-1 border-2" />
+                Add an outdoor spot
+              </Link>
+            </button>
           </form>
         </div>
       </section>

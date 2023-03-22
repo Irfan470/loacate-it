@@ -1,9 +1,21 @@
-import React from "react";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router";
 
 export default function Header() {
+  const [pageState, setPageState] = useState("Sign in");
   const location = useLocation();
   const navigate = useNavigate();
+  const auth = getAuth();
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setPageState("Profile");
+      } else {
+        setPageState("Sign in");
+      }
+    });
+  }, [auth]);
   function pathMatchRoute(route) {
     if (route === location.pathname) {
       return true;
@@ -14,7 +26,7 @@ export default function Header() {
       <header className="flex justify-between items-center px-3 max-w-6xl mx-auto">
         <div>
           <img
-            src="https://t4.ftcdn.net/jpg/01/92/96/93/360_F_192969327_l5WdNvwU5myPhZ08wsbEWNLXpyVXSIi4.jpg"
+            src="https://www.vhv.rs/dpng/d/433-4339606_green-location-pin-transparent-background-hd-png-download.png"
             alt="logo"
             className="h-9 cursor-pointer hover:"
             onClick={() => navigate("/")}
@@ -24,7 +36,7 @@ export default function Header() {
           <ul className="flex space-x-10">
             <li
               className={`cursor-pointer py-3 text-sm font-bold text-[#2d4745] border-b-[3px] border-b-transparent ${
-                pathMatchRoute("/") && "text-black border-b-orange-500"
+                pathMatchRoute("/") && "text-black border-b-red-500"
               }`}
               onClick={() => navigate("/")}
             >
@@ -32,26 +44,16 @@ export default function Header() {
             </li>
             <li
               className={`cursor-pointer py-3 text-sm font-bold text-[#2d4745] border-b-[3px] border-b-transparent ${
-                pathMatchRoute("/outdoor-gyms") &&
-                "text-black border-b-orange-500"
+                pathMatchRoute("/outdoor-gyms") && "text-black border-b-red-500"
               }`}
               onClick={() => navigate("/outdoor-gyms")}
             >
               Outdoor Gyms
             </li>
+
             <li
               className={`cursor-pointer py-3 text-sm font-bold text-[#2d4745] border-b-[3px] border-b-transparent ${
-                pathMatchRoute("/bike-service-spots") &&
-                "text-black border-b-orange-500"
-              }`}
-              onClick={() => navigate("/bike-service-spots")}
-            >
-              Bike Service
-            </li>
-            <li
-              className={`cursor-pointer py-3 text-sm font-bold text-[#2d4745] border-b-[3px] border-b-transparent ${
-                pathMatchRoute("/picnic-spots") &&
-                "text-black border-b-orange-500"
+                pathMatchRoute("/picnic-spots") && "text-black border-b-red-500"
               }`}
               onClick={() => navigate("/picnic-spots")}
             >
@@ -59,11 +61,12 @@ export default function Header() {
             </li>
             <li
               className={`cursor-pointer py-3 text-sm font-bold text-[#2d4745] border-b-[3px] border-b-transparent ${
-                pathMatchRoute("/sign-in") && "text-black border-b-orange-500"
+                pathMatchRoute("/sign-in") ||
+                (pathMatchRoute("/profile") && "text-black border-b-red-500")
               }`}
-              onClick={() => navigate("/sign-in")}
+              onClick={() => navigate("/profile")}
             >
-              Sign in
+              {pageState}
             </li>
           </ul>
         </div>
