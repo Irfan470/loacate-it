@@ -1,6 +1,7 @@
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router";
+import { CgProfile } from "react-icons/cg";
 
 export default function Header() {
   const [pageState, setPageState] = useState("Sign in");
@@ -66,7 +67,10 @@ export default function Header() {
               }`}
               onClick={() => navigate("/profile")}
             >
-              {pageState}
+              <div className="flex">
+                {pageState}
+                <CgProfile className="text-2xl  bg-white rounded-full ml-1" />
+              </div>
             </li>
           </ul>
         </div>

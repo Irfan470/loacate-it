@@ -2,5 +2,76 @@
 @tailwind components;
 @tailwind utilities;
 body {
+  /* background-attachment: fixed; */
+  /* background-image: url("https://media.timeout.com/images/105696525/image.jpg"); */
   background-color: rgb(183, 240, 182);
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  color: #4eca6d;
+}
+
+.swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
+  background: #a8dadc !important;
+}
+
+html::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  scrollbar-width: none;
+}
+/* h2 {
+  color: white;
+  font-family: Arial, sans-serif;
+  font-size: 2rem;
+} */
+.copy {
+  color: #eaf6f6;
+  font-size: 0.75rem;
+  padding: 20px 0;
+}
+
+.btn {
+  background: #5dd467;
+  background-image: -webkit-linear-gradient(top, #5dd467, #2d9de3);
+  background-image: -moz-linear-gradient(top, #5dd467, #2d9de3);
+  background-image: -ms-linear-gradient(top, #5dd467, #2d9de3);
+  background-image: -o-linear-gradient(top, #5dd467, #2d9de3);
+  background-image: linear-gradient(to bottom, #5dd467, #2d9de3);
+  -webkit-border-radius: 12;
+  -moz-border-radius: 12;
+  border-radius: 12px;
+  font-family: Arial;
+  color: #1a191a;
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+.btn:hover {
+  background: #176fa6;
+  background-image: -webkit-linear-gradient(top, #176fa6, #d93479);
+  background-image: -moz-linear-gradient(top, #176fa6, #d93479);
+  background-image: -ms-linear-gradient(top, #176fa6, #d93479);
+  background-image: -o-linear-gradient(top, #176fa6, #d93479);
+  background-image: linear-gradient(to bottom, #176fa6, #d93479);
+  text-decoration: none;
+}
+.contact {
+  margin: 40px auto;
+  width: 40%;
+}
+a {
+  color: #11999e;
+  font-family: "Montserrat", sans-serif;
+  text-decoration: none;
+}
+a:hover {
+  color: #eaf6f6;
+}
+.bottom-container {
+  background-color: #32e997;
+  padding: 50px 0 20px;
 }
