@@ -14,7 +14,6 @@ import PrivateRoute from "./components/PrivateRoute";
 import CreateListing from "./Pages/CreateListing";
 import EditListing from "./Pages/EditListing";
 import Listing from "./Pages/Listing";
-import Map from "./Pages/Map";
 
 function App() {
   return (
@@ -23,7 +22,6 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/map" element={<Map />} />
           <Route path="/profile" element={<PrivateRoute />}>
             <Route path="/profile" element={<Profile />} />
           </Route>
